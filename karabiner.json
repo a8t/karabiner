@@ -61,7 +61,7 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "shell_command": "/Users/andy/dev/ddcctl/ddcctl -d 1 -i 17"
+                    "shell_command": "/Users/andy/dev/ddcctl/ddcctl -d 1 -i 17 && /Users/andy/dev/ddcctl/mirror -on"
                   }
                 ]
               },
@@ -92,7 +92,7 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "shell_command": "/Users/andy/dev/ddcctl/ddcctl -d 1 -i 1"
+                    "shell_command": "/Users/andy/dev/ddcctl/ddcctl -d 1 -i 1 && /Users/andy/dev/ddcctl/mirror -off"
                   }
                 ]
               }
