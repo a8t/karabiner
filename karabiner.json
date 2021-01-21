@@ -45,9 +45,16 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "escape",
+                  "simultaneous": [
+                    {
+                      "key_code": "escape"
+                    },
+                    {
+                      "key_code": "left_shift"
+                    }
+                  ],
                   "modifiers": {
-                    "optional": ["caps_lock"]
+                    "optional": ["any"]
                   }
                 },
                 "parameters": {
