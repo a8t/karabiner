@@ -105,6 +105,71 @@
             ]
           },
           {
+            "description": "Switch to HDMI when ESC is held; switch back when left and right shift are held",
+            "manipulators": [
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": ["any"]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "escape"
+                    },
+                    {
+                      "key_code": "left_shift"
+                    }
+                  ]
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 250,
+                  "basic.to_if_held_down_threshold_milliseconds": 250
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "shell_command": "/Users/andy/dev/ddcctl/ddcctl -d 1 -i 17 && /Users/andy/dev/ddcctl/mirror -on"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": ["any"]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "left_shift"
+                    },
+                    {
+                      "key_code": "right_shift"
+                    }
+                  ]
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 250,
+                  "basic.to_if_held_down_threshold_milliseconds": 250
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "shell_command": "/Users/andy/dev/ddcctl/ddcctl -d 1 -i 1 && /Users/andy/dev/ddcctl/mirror -off"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "CAPS+hjkl to arrow keys (post ESC when CAPS is pressed alone).",
             "manipulators": [
               {
@@ -187,27 +252,6 @@
                 "to": [
                   {
                     "key_code": "right_arrow"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "vim pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward"
                   }
                 ],
                 "type": "basic"
