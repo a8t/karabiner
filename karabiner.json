@@ -105,19 +105,13 @@
             ]
           },
           {
-            "description": "CAPS+hjkl to arrow keys (post ESC when CAPS is pressed alone).",
+            "description": "Left control + hjkl to arrow keys (post ESC when CAPS is pressed alone).",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "name": "vim pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
                 "from": {
                   "key_code": "j",
                   "modifiers": {
+                    "mandatory": ["left_control"],
                     "optional": ["any"]
                   }
                 },
@@ -129,16 +123,10 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "name": "vim pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
                 "from": {
                   "key_code": "k",
                   "modifiers": {
+                    "mandatory": ["left_control"],
                     "optional": ["any"]
                   }
                 },
@@ -150,16 +138,10 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "name": "vim pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
                 "from": {
                   "key_code": "h",
                   "modifiers": {
+                    "mandatory": ["left_control"],
                     "optional": ["any"]
                   }
                 },
@@ -171,16 +153,10 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "name": "vim pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
                 "from": {
                   "key_code": "l",
                   "modifiers": {
+                    "mandatory": ["left_control"],
                     "optional": ["any"]
                   }
                 },
@@ -192,52 +168,16 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "name": "vim pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
                 "from": {
                   "key_code": "delete_or_backspace",
                   "modifiers": {
+                    "mandatory": ["left_control"],
                     "optional": ["any"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "left_control",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "vim pressed",
-                      "value": 1
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "vim pressed",
-                      "value": 0
-                    }
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
                   }
                 ],
                 "type": "basic"
